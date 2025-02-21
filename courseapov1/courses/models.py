@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class User(AbstractUser):
     pass
@@ -29,3 +30,12 @@ class Course(BaseModel):
 
     class Meta:
         ordering = ['-id']
+
+class Lesson(BaseModel):
+    subject = models.CharField(max_length=255)
+    content = RichTextField()
+    image = models.ImageField(upload_to='lessons/%Y/%m/')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.subject
