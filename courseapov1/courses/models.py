@@ -49,8 +49,21 @@ class Tag(BaseModel):
         return self.name
 
 
-# class Comment(Interaction):
-#     content = models.CharField(max_length=255)
-#
-#     def __str__(self):
-#         return self.content
+class Interaction(BaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+
+    class Meta:
+        abstract = True
+
+
+class Comment(Interaction):
+    content = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.content
+
+
+class Like(Interaction):
+    class Meta:
+        unique_together = ('user', 'lesson')

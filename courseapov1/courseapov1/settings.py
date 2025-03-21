@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+#--------------------------------------------------------------------------
+#OAUTH2_PROVIDER = { 'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore' }
+#--------------------------------------------------------------------------
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,8 +43,13 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'oauth2_provider'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('oauth2_provider.contrib.rest_framework.OAuth2Authentication',)
+}
 
 AUTH_USER_MODEL = 'courses.User'
 
@@ -142,3 +151,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLIENT_ID = '6ehB61sBHIwzRGX6mlp8vz7fqGzEElHa0j7c1S7f'
+CLIENT_SECRET = 'cgIXTEivQDcfTk7G9mfWcKLUsxcgN0BcA8M1bB2AumQ5A0MYgP4LtL2wWddkfC48BBDK6fxUL43D0wjsnXA4PzbjEAL9IEQeBJU3fVojis1rUa0RJdMTJeJpDXr8EcgC'
