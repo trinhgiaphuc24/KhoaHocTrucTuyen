@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 #--------------------------------------------------------------------------
-#OAUTH2_PROVIDER = { 'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore' }
+# OAUTH2_PROVIDER = { 'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore' }
 #--------------------------------------------------------------------------
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'coursedb',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '040204',
         'HOST': ''  # mặc định localhost
     }
 }
@@ -152,5 +152,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CLIENT_ID = '6ehB61sBHIwzRGX6mlp8vz7fqGzEElHa0j7c1S7f'
-CLIENT_SECRET = 'cgIXTEivQDcfTk7G9mfWcKLUsxcgN0BcA8M1bB2AumQ5A0MYgP4LtL2wWddkfC48BBDK6fxUL43D0wjsnXA4PzbjEAL9IEQeBJU3fVojis1rUa0RJdMTJeJpDXr8EcgC'
+CLIENT_ID = 'h3BhTLsG4Xusrg9SUVopfFdthFE9JRw8GHVxS6d4'
+CLIENT_SECRET = 'T3yFfvh6j3xFBGpadIAQAdOoLJamnYJmDmu53x09k66LvbUXzsD3d191xiRF82f7JPvxLUhQBMz3NzAFfDxqOJTzwYwUvMgERQQfZy34ypQ6yYtd8BMXQau9XsvZKtB7'

@@ -1,17 +1,17 @@
 from courses.models import Course,Category,Lesson, Tag, User, Comment
 from rest_framework import serializers
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
+
+class CategorySerializer(ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', 'name']
 
 class ItemSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data['image'] = instance.image.url
         return data
-
-class CategorySerializer(ItemSerializer):
-    class Meta:
-        model = Category
-        fields = ['id', 'name']
 
 class CourseSerializer(ItemSerializer):
     class Meta:
@@ -62,7 +62,7 @@ class UserSerializer(ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        data['avatar'] = instance.avatar.url
+        data['avatar'] = instance.avatar.url if instance.avatar else None
         return data
 
     def create(self, validated_data):
